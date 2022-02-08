@@ -3,7 +3,7 @@ name: deploy-these-guns
 on: [workflow_dispatch]
 
 env:
-    AZURE_RESOURCEGROUP_NAME: rs-testing-sp
+    AZURE_RESOURCEGROUP_NAME: rg-testing-sp
 
 jobs:
   deploy:
