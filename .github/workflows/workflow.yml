@@ -14,7 +14,7 @@ jobs:
           path: repo
       - uses: azure/login@v1
         with:
-          creds: ${{ secrets.AZURE_CREDS }}
+          creds: ${{ secrets.AZURE_CREDS_CLI }}
       - uses: azure/arm-deploy@v1
         with:
           deploymentName: ${{ github.run_number }}
