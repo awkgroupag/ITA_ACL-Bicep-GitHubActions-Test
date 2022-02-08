@@ -1,5 +1,5 @@
 resource testingStrg 'Microsoft.Storage/storageAccounts@2021-02-01' = {
-  name: 'sp_management_storage'
+  name: 'spstorage'
   location: 'westeurope'
   kind: 'StorageV2'
   sku: {
