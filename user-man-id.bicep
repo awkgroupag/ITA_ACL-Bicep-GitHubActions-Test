@@ -7,11 +7,12 @@ resource managedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2018-
   location: 'westeurope'
 }
 
-// resource roleAssignment 'Microsoft.Authorization/roleAssignments@2020-04-01-preview' = {
-//   name: guid(resourceGroup().id, managedIdentity.id, roleDefinitionResourceId)
-//   properties: {
-//     roleDefinitionId: roleDefinitionResourceId
-//     principalId: managedIdentity.properties.principalId
-//     principalType: 'ServicePrincipal'
-//   }
-// }
+resource roleAssignment 'Microsoft.Authorization/roleAssignments@2020-04-01-preview' = {
+  
+  name: guid(resourceGroup().id, managedIdentity.id, roleDefinitionResourceId)
+  properties: {
+    roleDefinitionId: roleDefinitionResourceId
+    principalId: managedIdentity.properties.principalId
+    principalType: 'ServicePrincipal'
+  }
+}
