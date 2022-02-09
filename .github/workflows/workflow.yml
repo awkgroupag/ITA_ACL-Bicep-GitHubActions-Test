@@ -1,4 +1,4 @@
-name: deploy-these-guns
+name: deploy-storage-account
 
 on: [workflow_dispatch]
 
@@ -17,4 +17,4 @@ jobs:
         with:
           deploymentName: ${{ github.run_number }}
           resourceGroupName: ${{ env.AZURE_RESOURCEGROUP_NAME }}
-          template: ./main.bicep
+          template: ./storage.bicep
