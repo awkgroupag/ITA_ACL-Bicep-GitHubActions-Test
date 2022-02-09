@@ -12,12 +12,12 @@ resource testingStrg 'Microsoft.Storage/storageAccounts@2021-02-01' = {
 }
 
 
-resource roleAssignment 'Microsoft.Authorization/roleAssignments@2020-08-01-preview' ={
-  scope: testingStrg
-  name: guid(testingStrg.id, principalId, roleDefinitionResourceId)
-  properties: {
-    roleDefinitionId: roleDefinitionResourceId
-    principalId: principalId
-    principalType: 'ServicePrincipal'
-  }
-}
+// resource roleAssignment 'Microsoft.Authorization/roleAssignments@2020-08-01-preview' ={
+//   scope: testingStrg
+//   name: guid(testingStrg.id, principalId, roleDefinitionResourceId)
+//   properties: {
+//     roleDefinitionId: roleDefinitionResourceId
+//     principalId: principalId
+//     principalType: 'ServicePrincipal'
+//   }
+// }
