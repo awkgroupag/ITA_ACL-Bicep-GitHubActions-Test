@@ -7,9 +7,14 @@ resource testingStrg 'Microsoft.Storage/storageAccounts@2021-02-01' existing = {
   name: 'spstorage6w75eauwdifum'
 }
 
+resource testingStrg2 'Microsoft.Storage/storageAccounts@2021-02-01' existing = {
+  name: 'strg6w75eauwdifum'
+}
 resource managedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2018-11-30' existing = {
   name: 'user-man-id'
 }
+
+
 
 resource roleAssignment_manag 'Microsoft.Authorization/roleAssignments@2020-04-01-preview' = {
   
@@ -19,7 +24,7 @@ resource roleAssignment_manag 'Microsoft.Authorization/roleAssignments@2020-04-0
     roleDefinitionId: roleDefinitionResourceId_contr
     principalId: managedIdentity.properties.principalId
     principalType: 'ServicePrincipal'
-    description: 'The user managed identity shall contribute to the storage account.'
+    description: 'pyt-sp may contribute to the managed identity.'
   }
 }
 
@@ -36,7 +41,7 @@ resource roleAssignment_storage 'Microsoft.Authorization/roleAssignments@2020-04
 }
 
 resource roleAssignment_storage2 'Microsoft.Authorization/roleAssignments@2020-04-01-preview' ={
-  scope: testingStrg
+  scope: testingStrg2
   name: guid(testingStrg.id, principalId, roleDefinitionResourceId_contr)
   properties: {
     roleDefinitionId: roleDefinitionResourceId_contr
@@ -46,3 +51,13 @@ resource roleAssignment_storage2 'Microsoft.Authorization/roleAssignments@2020-0
   }
 }
 
+resource roleAssignment_storage2_userId 'Microsoft.Authorization/roleAssignments@2020-04-01-preview' ={
+  scope: testingStrg2
+  name: guid(testingStrg.id, managedIdentity.id, roleDefinitionResourceId_contr)
+  properties: {
+    roleDefinitionId: roleDefinitionResourceId_contr
+    principalId: managedIdentity.properties.principalId
+    principalType: 'ServicePrincipal'
+    description: 'the managed id shall contribute to the storage account'
+  }
+}
