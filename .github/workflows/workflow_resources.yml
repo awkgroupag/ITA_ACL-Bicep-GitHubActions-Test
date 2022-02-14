@@ -17,4 +17,4 @@ jobs:
         with: 
           deploymentName: ${{ github.run_number }}
           resourceGroupName: ${{ env.AZURE_RESOURCEGROUP_NAME }}
-          template: ./permissions.bicep
+          template: ./rgroup.bicep

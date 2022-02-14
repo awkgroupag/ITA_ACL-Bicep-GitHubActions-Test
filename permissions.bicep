@@ -1,6 +1,6 @@
 var roleDefinitionResourceId_contr  = '/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c'
 var roleDefinitionResourceId_reader  = '/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7'
-var principalId  = '1baeee5f-74b0-4a46-b90b-11f818c8095b'
+var principalId  = '21843d93-c691-49e6-a43b-d0a1ed1c1f7a'
 
 
 resource testingStrg 'Microsoft.Storage/storageAccounts@2021-02-01' existing = {
