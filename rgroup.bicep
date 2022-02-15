@@ -1,5 +1,4 @@
 var managedIdentityName = 'user-man-id'
-
 param defloc string = 'westeurope'
 
 
@@ -26,10 +25,16 @@ resource usermanagedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2
   location: defloc
 }
 
-resource LApp 'Microsoft.Logic/workflows@2019-05-01' = {
-  name: 'mylappfortests'
-  identity: {
-    type: 'UserAssigned'
-    userAssignedIdentities: usermanagedIdentity
-  }
-}
+// resource LApp 'Microsoft.Logic/workflows@2019-05-01' = {
+//   name: 'mylappfortests'
+//   location: defloc
+//   identity: {
+//     type: 'UserAssigned'
+//     userAssignedIdentities: {
+//       '/subscriptions/9bf29025-6542-4c65-8b12-e6b6c88a87d1/resourceGroups/rg-testing-sp/providers/Microsoft.ManagedIdentity/userAssignedIdentities/user-man-id': {}
+//     }
+//   }
+//   properties: {
+//     definition: {}
+//   }
+// }
